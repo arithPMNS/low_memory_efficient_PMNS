@@ -246,10 +246,10 @@ def find_small_valid_vect__and__compute_rhoUp_log2_and_nb_add_max(p, n, gmm, red
 		
 	exhaustive_search_bound = 10
 	if lb <= exhaustive_search_bound: # 'lb' is small enough for an exhaustive search
-		return exhaustive_search(rrbase, lb, n, redExtPol_coeffs, nb_free_add, phi_log2, tE, T)
+		return exhaustive_search(matrix(rrbase), lb, n, redExtPol_coeffs, nb_free_add, phi_log2, tE, T)
 	
 	
-	(M, rhoUp_log2) = check_base_rows(rrbase, n, redExtPol_coeffs, nb_free_add, phi_log2, tE, T)
+	(M, rhoUp_log2) = check_base_rows(matrix(rrbase), n, redExtPol_coeffs, nb_free_add, phi_log2, tE, T)
 	if rhoUp_log2 != 0:
 		return (M, rhoUp_log2)
 	elif len(rrbase) < 2:
@@ -273,7 +273,7 @@ def find_small_valid_vect__and__compute_rhoUp_log2_and_nb_add_max(p, n, gmm, red
 			#print(bin(k)[2:])
 			continue
 		
-		(M, rhoUp_log2) = check_k(k, exhaustive_search_bound, n, vInit, rrbase, redExtPol_coeffs, nb_free_add, phi_log2, tE, T)
+		(M, rhoUp_log2) = check_k(k, exhaustive_search_bound, n, vInit, matrix(rrbase), redExtPol_coeffs, nb_free_add, phi_log2, tE, T)
 		
 		if rhoUp_log2 != 0:
 			return (M, rhoUp_log2)
