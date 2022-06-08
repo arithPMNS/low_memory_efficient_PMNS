@@ -4,6 +4,7 @@ roots_max_duration_checks = 60  # seconds
 
 bSize = 256
 p = random_prime(2**bSize, lbound=2**(bSize-1))
+# or p = Integer(...) to give a specific value for p
 
 nb_free_add = 1
 phi_log2 = 64 
